@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASCO - Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .logo-font { font-family: 'Playfair Display', serif; }
+        .auth-input {
+            border: none;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0.75rem 0;
+            outline: none;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .auth-input:focus {
+            border-bottom-color: #000;
+        }
+        ::placeholder {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-[#fcfcfc] min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-5xl w-full bg-white rounded-[2rem] overflow-hidden shadow-sm flex flex-col md:flex-row border border-gray-100">
+        
+        <div class="md:w-1/2 relative bg-[#f3f3f3]">
+            <img src="/images/valna-studio-mU88MlEFcoU-unsplash.jpg" 
+                 alt="Sign Up Model" 
+                 class="w-full h-full object-cover">
+        </div>
+
+        <div class="md:w-1/2 p-12 lg:p-16 flex flex-col justify-center">
+            <h1 class="text-4xl logo-font mb-8 tracking-wider">FASCO</h1>
+            
+            <h2 class="text-xl font-semibold mb-6">Create Account</h2>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                <button class="flex-1 flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition">
+                    <img src="/images/google-icon.svg" class="w-5 h-5">
+                    <span class="text-xs font-medium">Sign up with Google</span>
+                </button>
+                <button class="flex-1 flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5">
+                    <span class="text-xs font-medium">Sign up with Email</span>
+                </button>
+            </div>
+
+            <div class="relative mb-10 text-center">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100"></div></div>
+                <span class="relative bg-white px-4 text-sm text-gray-400 font-medium italic">— OR —</span>
+            </div>
+
+            <form id="signupForm" class="space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" placeholder="First Name" class="auth-input w-full" required>
+                    <input type="text" placeholder="Last Name" class="auth-input w-full" required>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="email" placeholder="Email Address" class="auth-input w-full" required>
+                    <input type="tel" placeholder="Phone Number" class="auth-input w-full">
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="password" placeholder="Password" class="auth-input w-full" required>
+                    <input type="password" placeholder="Confirm Password" class="auth-input w-full" required>
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white py-4 rounded-xl font-medium shadow-lg hover:bg-zinc-800 transition transform active:scale-95 mt-4">
+                    Create Account
+                </button>
+            </form>
+
+            <p class="text-center mt-6 text-sm text-gray-500">
+                Already have an account? <a href="signin.html" class="text-blue-500 hover:underline">Login</a>
+            </p>
+
+            <p class="text-right mt-12 text-[10px] text-gray-400 tracking-wide">
+                FASCO Terms & Conditions
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const pass = this.querySelectorAll('input[type="password"]')[0].value;
+            const confirmPass = this.querySelectorAll('input[type="password"]')[1].value;
+
+            if (pass !== confirmPass) {
+                alert("Passwords don't match!");
+                return;
+            }
+
+            alert("Account created successfully!");
+        });
+    </script>
+</body>
+</html>
